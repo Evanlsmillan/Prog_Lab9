@@ -10,8 +10,21 @@ def encode(password):
             x = int(i) + y
         empty = empty + str(x)
     return empty
-print(encode('00009962'))
+#print(encode('00009962'))
 
+
+def decode(password):
+    empty = ''
+    for i in password:
+        y = 3
+        if int(i) < 4:
+            y = 7
+            x = int(i) - y
+        else:
+            x = int(i) - y
+        empty =empty + str(x)
+    return empty
+#print(decode("45678888"))
 if __name__ == '__main__':
     menu = """Menu
 -------------
@@ -24,11 +37,13 @@ if __name__ == '__main__':
         choice = input('Please enter an option: ')
         if choice == '1':
             password = input('Please enter your password to encode: ')
-            print(encode(password))
+            encoded = encode(password)
             print("Your password has been encoded and stored!")
 
         if choice == '2':
-            decode = input('Please enter an option: ')
-            
+            print(f"The encoded password is {encoded}, and the original password is {password}.")
+
+
+
         if choice == '3':
             exit()
